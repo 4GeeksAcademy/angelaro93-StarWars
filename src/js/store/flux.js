@@ -3,7 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         store: {
             characters: [],
             planets: [],
-            vehicles: []
+            vehicles: [],
+            selectedCharacter: null
         },
         actions: {
             // Ejemplo de función que llama a otra función dentro de actions
@@ -39,7 +40,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             getCharacterDetail: (id) => {
                 fetch(`https://www.swapi.tech/api/people/${id}/`)
                     .then(response => response.json())
-                    .then(data => {return data})
+                    .then(data => setStore({selectedCharacter: data.result.properties}))
                     .catch(error => console.error("Error fetching planets:", error));
             },
 

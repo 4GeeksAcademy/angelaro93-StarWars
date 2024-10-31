@@ -2,16 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
-	return (
-		<nav className="navbar navbar-light bg-light mb-3">
-			<Link to="/">
-				<span className="navbar-brand mb-0 h1"></span>
-			</Link>
-			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">FAVORITES</button>
-				</Link>
-			</div>
-		</nav>
-	);
+  return (
+    <nav
+      className="navbar navbar-expand-lg navbar-dark"
+      style={{ backgroundColor: "#000000" }}
+    >
+      <div className="ml-auto d-flex">
+        <button className="btn btn-light" style={{ marginLeft: "10px" }}>
+          FAVORITES
+        </button>
+      </div>
+    </nav>
+  );
 };
