@@ -4,7 +4,9 @@ const getState = ({ getStore, getActions, setStore }) => {
             characters: [],
             planets: [],
             vehicles: [],
-            selectedCharacter: null
+            selectedCharacter: null,
+            selectedVdehicles: null,
+            selectedPlanet: null
         },
         actions: {
             // Ejemplo de función que llama a otra función dentro de actions
@@ -40,11 +42,25 @@ const getState = ({ getStore, getActions, setStore }) => {
             getCharacterDetail: (id) => {
                 fetch(`https://www.swapi.tech/api/people/${id}/`)
                     .then(response => response.json())
-                    .then(data => setStore({selectedCharacter: data.result.properties}))
-                    .catch(error => console.error("Error fetching planets:", error));
+                    .then(data => setStore({selectedCharacter: data}))
+                    .catch(error => console.error("Error fetching character:", error));
             },
-
-
+            getVehicleDetail: (id) => {
+                fetch(`https://www.swapi.tech/api/vehicles/${id}/`)  
+                    .then(response => response.json())
+                    .then(data => {
+                        setStore({ selectedVehicle: data });  
+                    })
+                    .catch(error => console.error("Error fetching vehicles:", error));
+            },
+            getPlanetDetail: (id) => {
+                fetch(`https://www.swapi.tech/api/planets/${id}/`)  
+                    .then(response => response.json())
+                    .then(data => {
+                        setStore({ selectedPlanet: data });  
+                    })
+                    .catch(error => console.error("Error fetching planet:", error));
+            },
         }
     };
 };

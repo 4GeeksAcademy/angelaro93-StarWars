@@ -13,51 +13,55 @@ export const Home = () => {
   }, []);
 
   return (
-    <div>
-      {/* Contenedor principal con fondo */}
-      <div 
-        style={{
-          backgroundImage: `url('https://data.1freewallpapers.com/download/starry-sky-stars-black-glitter-3840x2160.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          padding: '20px',
-        }}
-      >
-        {/* Cards de characters */}
-        <div className="d-flex flex-wrap" style={{ gap: '20px', marginBottom: '40px' }}>
+    <div
+      style={{
+        backgroundImage: `url('https://data.1freewallpapers.com/download/starry-sky-stars-black-glitter-3840x2160.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        padding: '20px',
+      }}
+    >
+      <div className="container">
+        <h2 className="text-light mb-4">Characters</h2>
+        <div className="row">
           {store.characters?.map((character) => (
-            <div className="col-6 col-md-4 col-lg-2" key={character.uid} style={{ margin: '10px' }}> {/* Margen entre cada tarjeta */}
+            <div className="col-6 col-md-4 col-lg-3 mb-4" key={character.uid}>
               <Card 
                 name={character.name} 
                 type="characters" 
                 id={character.uid} 
                 imageStyle={{ width: '100%', height: '150px', objectFit: 'cover' }} 
+                className="card-fixed" // Aplica la clase CSS para la tarjeta
               />
             </div>
           ))}
         </div>
-  
-        <div className="d-flex flex-wrap" style={{ gap: '20px', marginBottom: '40px' }}>
+
+        <h2 className="text-light mb-4">Vehicles</h2>
+        <div className="row">
           {store.vehicles?.map((vehicle) => (
-            <div className="col-6 col-md-4 col-lg-2" key={vehicle.uid} style={{ margin: '10px' }}> 
+            <div className="col-6 col-md-4 col-lg-3 mb-4" key={vehicle.uid}>
               <Card 
                 name={vehicle.name} 
                 type="vehicles" 
                 id={vehicle.uid} 
                 imageStyle={{ width: '100%', height: '150px', objectFit: 'cover' }} 
+                className="card-fixed" // Aplica la clase CSS para la tarjeta
               />
             </div>
           ))}
         </div>
-  
-        <div className="d-flex flex-wrap" style={{ gap: '20px' }}>
+
+        <h2 className="text-light mb-4">Planets</h2>
+        <div className="row">
           {store.planets?.map((planet) => (
-            <div className="col-6 col-md-4 col-lg-2" key={planet.uid} style={{ margin: '10px' }}> 
+            <div className="col-6 col-md-4 col-lg-3 mb-4" key={planet.uid}>
               <Card 
                 name={planet.name} 
                 type="planets" 
                 id={planet.uid} 
                 imageStyle={{ width: '100%', height: '150px', objectFit: 'cover' }} 
+                className="card-fixed" // Aplica la clase CSS para la tarjeta
               />
             </div>
           ))}
@@ -65,4 +69,4 @@ export const Home = () => {
       </div>
     </div>
   );
-}  
+}
