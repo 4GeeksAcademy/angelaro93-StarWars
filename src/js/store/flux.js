@@ -6,7 +6,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             vehicles: [],
             selectedCharacter: null,
             selectedVdehicles: null,
-            selectedPlanet: null
+            selectedPlanet: null,
+            favorites: []
         },
         actions: {
             // Ejemplo de función que llama a otra función dentro de actions
@@ -61,6 +62,15 @@ const getState = ({ getStore, getActions, setStore }) => {
                     })
                     .catch(error => console.error("Error fetching planet:", error));
             },
+
+            addToFavorites: (item) => {
+                const store = getStore();
+                const newFavorites = [...store.favorites, item];
+                setStore({
+                    favorites: newFavorites
+                });
+                localStorage.setItem('favorites', JSON.stringify(newFavorites))
+            }
         }
     };
 };

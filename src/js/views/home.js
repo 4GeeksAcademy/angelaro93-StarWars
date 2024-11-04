@@ -12,6 +12,10 @@ export const Home = () => {
     actions.getPlanets();
   }, []);
 
+  useEffect(() => {
+    const favoritesFromStorage = localStorage.getItem('favorites');
+  }, []);
+
   return (
     <div
       style={{

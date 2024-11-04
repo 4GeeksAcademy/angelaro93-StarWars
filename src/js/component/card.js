@@ -10,6 +10,7 @@ const navigate = useNavigate()
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
           <button className="btn btn-primary" onClick={()=>navigate(`/detail-${type}/${id}`)}>view more</button>
+          <button type="button" class="btn btn-dark">Like</button>
         </div>
       </div>
       )

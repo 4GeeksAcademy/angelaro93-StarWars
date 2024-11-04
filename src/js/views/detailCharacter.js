@@ -10,6 +10,8 @@ const DetailCharacter = () => {
 
   useEffect(() => {
     actions.getCharacterDetail(params.theid);
+    
+
   }, [actions, params.theid]);
 
   useEffect(() => {
