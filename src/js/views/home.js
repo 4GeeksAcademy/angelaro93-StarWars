@@ -12,10 +12,7 @@ export const Home = () => {
     actions.getPlanets();
   }, []);
 
-  useEffect(() => {
-    const favoritesFromStorage = localStorage.getItem('favorites');
-  }, []);
-
+  
   return (
     <div
       style={{
@@ -30,18 +27,32 @@ export const Home = () => {
         <div className="row">
           {store.characters?.map((character) => (
             <div className="col-6 col-md-4 col-lg-3 mb-4" key={character.uid}>
-              <Card 
-                name={character.name} 
-                type="characters" 
-                id={character.uid} 
-                imageStyle={{ width: '100%', height: '150px', objectFit: 'cover' }} 
-                className="card-fixed" // Aplica la clase CSS para la tarjeta
-              />
-               <div>
-               <button type="button" className="btn btn-primary" onClick={()=> actions.addToFavorites(character.name)}>Like</button>
-                {character.name}</div>
+              <div className="card-fixed position-relative">
+                <Card
+                  name={character.name}
+                  type="characters"
+                  id={character.uid}
+                  imageStyle={{ width: '100%', height: '150px', objectFit: 'cover' }}
+                />
+                {/* Emoji ❤️ como botón de Like sin fondo azul y más grande */}
+                <button
+                  type="button"
+                  className="position-absolute"
+                  style={{
+                    bottom: '10px',  
+                    right: '20px',   
+                    zIndex: '10',    
+                    background: 'transparent',  
+                    border: 'none',  
+                    fontSize: '30px', 
+                    cursor: 'pointer',
+                  }}
+                  onClick={() => actions.addToFavorites(character.name)}
+                >
+                  ❤️
+                </button>
+              </div>
             </div>
-           
           ))}
         </div>
 
@@ -49,13 +60,31 @@ export const Home = () => {
         <div className="row">
           {store.vehicles?.map((vehicle) => (
             <div className="col-6 col-md-4 col-lg-3 mb-4" key={vehicle.uid}>
-              <Card 
-                name={vehicle.name} 
-                type="vehicles" 
-                id={vehicle.uid} 
-                imageStyle={{ width: '100%', height: '150px', objectFit: 'cover' }} 
-                className="card-fixed" // Aplica la clase CSS para la tarjeta
-              />
+              <div className="card-fixed position-relative">
+                <Card
+                  name={vehicle.name}
+                  type="vehicles"
+                  id={vehicle.uid}
+                  imageStyle={{ width: '100%', height: '150px', objectFit: 'cover' }}
+                />
+                {/* Emoji ❤️ como botón de Like sin fondo azul y más grande */}
+                <button
+                  type="button"
+                  className="position-absolute"
+                  style={{
+                    bottom: '10px',  
+                    right: '20px',   
+                    zIndex: '10',    
+                    background: 'transparent',  
+                    border: 'none',  
+                    fontSize: '30px', 
+                    cursor: 'pointer', 
+                  }}
+                  onClick={() => actions.addToFavorites(vehicle.name)}
+                >
+                  ❤️
+                </button>
+              </div>
             </div>
           ))}
         </div>
@@ -64,17 +93,35 @@ export const Home = () => {
         <div className="row">
           {store.planets?.map((planet) => (
             <div className="col-6 col-md-4 col-lg-3 mb-4" key={planet.uid}>
-              <Card 
-                name={planet.name} 
-                type="planets" 
-                id={planet.uid} 
-                imageStyle={{ width: '100%', height: '150px', objectFit: 'cover' }} 
-                className="card-fixed" // Aplica la clase CSS para la tarjeta
-              />
+              <div className="card-fixed position-relative">
+                <Card
+                  name={planet.name}
+                  type="planets"
+                  id={planet.uid}
+                  imageStyle={{ width: '100%', height: '150px', objectFit: 'cover' }}
+                />
+                {/* Emoji ❤️ como botón de Like sin fondo azul y más grande */}
+                <button
+                  type="button"
+                  className="position-absolute"
+                  style={{
+                    bottom: '10px',  
+                    right: '20px',  
+                    zIndex: '10',   
+                    background: 'transparent', 
+                    border: 'none',  
+                    fontSize: '30px', 
+                    cursor: 'pointer', 
+                  }}
+                  onClick={() => actions.addToFavorites(planet.name)}
+                >
+                  ❤️
+                </button>
+              </div>
             </div>
           ))}
         </div>
       </div>
     </div>
   );
-}
+};
