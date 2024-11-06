@@ -62,15 +62,20 @@ const getState = ({ getStore, getActions, setStore }) => {
                     })
                     .catch(error => console.error("Error fetching planet:", error));
             },
-
+            deleteFavorite: (id) => {
+                const store = getStore();
+                store.favorites = store.favorites.filter((_, index) => index !== id);
+                setStore({ favorites: [...store.favorites] })
+            },
             addToFavorites: (item) => {
                 const store = getStore();
-                const newFavorites = [...store.favorites, item];
                 setStore({
-                    favorites: newFavorites
+                    favorites: [...store.favorites, item]
                 });
-                localStorage.setItem('favorites', JSON.stringify(newFavorites))
+                // localStorage.setItem('favorites', JSON.stringify(newFavorites))
+                console.log(store.favorites)
             }
+            
         }
     };
 };

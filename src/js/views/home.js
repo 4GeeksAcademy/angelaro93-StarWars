@@ -37,7 +37,11 @@ export const Home = () => {
                 imageStyle={{ width: '100%', height: '150px', objectFit: 'cover' }} 
                 className="card-fixed" // Aplica la clase CSS para la tarjeta
               />
+               <div>
+               <button type="button" className="btn btn-primary" onClick={()=> actions.addToFavorites(character.name)}>Like</button>
+                {character.name}</div>
             </div>
+           
           ))}
         </div>
 

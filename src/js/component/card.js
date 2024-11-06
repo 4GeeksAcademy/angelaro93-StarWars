@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router";
+import { Context } from "../store/appContext";
+
 
 
 const Card =({name, type, id}) => {
+  const { store, actions } = useContext(Context);
 const navigate = useNavigate()
     return(
     <div className="card" style={{width: "18rem"}}>
@@ -10,7 +13,7 @@ const navigate = useNavigate()
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
           <button className="btn btn-primary" onClick={()=>navigate(`/detail-${type}/${id}`)}>view more</button>
-          <button type="button" class="btn btn-dark">Like</button>
+         
         </div>
       </div>
       )
