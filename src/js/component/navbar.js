@@ -32,14 +32,14 @@ export const Navbar = () => {
             type="button"
             id="dropdownMenu2"
             data-toggle="dropdown"
-            style={{ marginRight: '20px' }}
+            style={{ marginRight: '50px' }}
           >
             Favorites: {favsCount}
           </button>
 
           {/* Clase dropdown-menu-end para alinear el menú a la derecha */}
           <div
-            className="dropdown-menu text-black dropdown-menu-end" // Alinea el dropdown a la derecha
+            className="dropdown-menu text-black" // Alinea el dropdown a la derecha
             aria-labelledby="dropdownMenu2"
           >
             <ul>
